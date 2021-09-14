@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+
+body{
+    font-family: 'Audiowide', cursive;  
+    
+    /* background is work for both solid and gradient  and background-color id only for solid color/ */
+    background: linear-gradient(
+        320deg,
+        rgba(247,247,247,1)23.8%,
+        rgba(252,221,221,1)90%);
+
+        height:100vh;
+        /* margin:0; */
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        /* hide the scroll bar  */
+         overflow: hidden;
+         flex-direction: column;
+        
+}
+
+.music-container{
+    background:#fff;
+    border-radius:15px;
+       /* h v b c */
+    box-shadow: 0 20px 20px  rgba(252,160,169,0.6) ;
+
+    display:flex;
+
+    padding:20px 10px;
+
+    margin:100px 0;
+    z-index:100;
+
+    position :relative;
+}
+
+.img-container{
+    width:110px;
+    position:relative;
+    /* background:red; */
+}
+
+.img-container img{
+    width:inherit;
+    height:110px;
+    border-radius: 50%;
+
+    position:absolute;
+
+    bottom:0;
+    left:0;
+
+    animation-name:myrotate;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
+    animation-play-state: paused;
+}
+
+@keyframes  myrotate {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+.img-container::after{
+    content:'';
+    width:20px;
+    height:20px;
+    background : #fff;
+
+    position : absolute;
+
+    bottom: 55%;
+    left: 50%;
+
+    transform:translate(-55%,-50%);
+
+    border-radius:50%;
+    
+}
+
+.music-container.play .img-container img{
+    animation-play-state: running;
+
+}
+
+.controls{
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 2;
+
+
+}
+
+.action-btn{
+    cursor: pointer;
+    background:#fff;
+    border:0;
+    color: #dfdbdf;
+    padding: 15px;
+    margin:0 20px;
+}
+
+.action-btn-big{
+    color:#cdc2d0;
+    font-size:30px;
+
+}
+
+.action-btn:focus{
+    outline: 0;
+}
+
+.music-info{
+    background:rgba(255,255,255,0.5);
+            /* topleft topright bottomleft bottomright */
+    border-radius:15px 15px 0 0;
+
+    position: absolute;
+
+    width: calc(100% - 40px);
+
+    top:0;
+    /* left and right each 20px cause it's minus 40px from 100% */
+    left:20px; 
+    z-index: 0;
+    opacity: 0;
+
+    padding:1px 1px 10px 150px;
+
+    transform:translateY(0%);
+    transition: transform 0.3s ease , opacity 0.3s ease;
+    
+}
+
+.music-container.play .music-info {
+    opacity: 1;
+    transform:translateY(-100%);
+    
+
+}
+
+.music-info h4{
+    margin:0;
+     
+}
+.progress-container{
+    background-color: #fff;
+    width:100%;
+    height:4px;
+    border-radius: 5px;
+    cursor:pointer;
+    margin:10px 0;
+
+}
+
+
+.progress{
+    background-color: #fe8daa;
+    width:0;
+    height:100%;
+    border-radius: 5px;
+}
+
+
+
+
+
+/* 16 JL1 WDF 2008 */
